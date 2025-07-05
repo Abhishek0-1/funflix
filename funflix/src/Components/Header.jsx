@@ -1,5 +1,6 @@
 import React from 'react'
 import assets from '../assets/menu.png'
+import { Link } from 'react-router'
 
 function Header() {
   return (
@@ -13,7 +14,7 @@ function Header() {
 
         </div>
         <div className='flex font-semibold  items-center gap-8'>
-          <p className='hover:text-white cursor-pointer items-center font-semibold'>Forums</p>
+          <p className='hover:text-white cursor-pointer items-center font-semibold' >Forums</p>
           <p className='hover:text-white cursor-pointer items-center font-semibold'>start selling</p>
           <p className='flex hover:text-white cursor-pointer items-center gap-2 font-semibold'><img className='h-5 invert' src="src/assets/menuu.png" alt="" /> our products</p>
           <button className='flex gap-3 bg-gray-800 p-3 pr-4 semibold hover:text-white cursor-pointer'> <img className='h-6 hover:invert invert-50 ' src="src/assets/store.png" alt="img" /> Sign in</button>
@@ -22,7 +23,7 @@ function Header() {
       <div className='flex gap-6 mt-6'>
         <p className='cursor-pointer hover:text-white font-semibold' >Web Themes & Templates</p>
         <p className='cursor-pointer hover:text-white font-semibold' >Code</p>
-        <p className='cursor-pointer hover:text-white font-semibold' >Video</p>
+        <p className='cursor-pointer hover:text-white font-semibold' ><Link to="/Youtube">Youtube</Link></p>
         <p className='cursor-pointer hover:text-white font-semibold' >Audio</p>
         <p className='cursor-pointer hover:text-white font-semibold' >Grafics</p>
         <p className='cursor-pointer hover:text-white font-semibold' >Photos</p>

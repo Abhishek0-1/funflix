@@ -3,8 +3,8 @@ import React from 'react'
 function Headerweb() {
     return (
         <div>
-            <div>
-                <div>
+            <div className='flex'>
+                <div >
                     <h1>Professional WordPress Themes & Website Templates for any project</h1>
                     <p>Discover thousands of easy to customize themes, templates & CMS products, made by world-class developers.
                     </p>

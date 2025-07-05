@@ -6,6 +6,8 @@ import { BrowserRouter, Outlet } from "react-router";
 import './App.css'
 import Footer from './Components/Footer';
 import Headerweb from './Components/Headerweb';
+import Youtube from './Components/Youtube';
+
 
 function App() {
 
@@ -13,10 +15,10 @@ function App() {
     <>
       <div className=''>
         <Header />
-         <Headerweb />
+        <Outlet />
         <Footer />
       </div>
-     
+
     </>
   )
 }
