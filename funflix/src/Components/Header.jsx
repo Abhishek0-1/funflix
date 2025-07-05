@@ -1,6 +1,6 @@
 import React from 'react'
 import assets from '../assets/menu.png'
-import { Link } from 'react-router'
+import { Link, NavLink } from 'react-router'
 
 function Header() {
   return (
@@ -8,9 +8,9 @@ function Header() {
       <div className='flex justify-between'>
         <div className='flex'>
           <div className='flex text-white'><h1 className='text-2xl font-extrabold'>
-            
+
             <img className='h-6  items-center' src="https://assets.market-storefront.envato-static.com/storefront/assets/logos/envato-market-0c6ef0bdbf918a098bf915273cd4ca39cb1afd7992deef185dafe33b2c623b2f.svg" alt="" /> </h1>
-            </div>
+          </div>
 
         </div>
         <div className='flex font-semibold  items-center gap-8'>
@@ -21,9 +21,20 @@ function Header() {
         </div>
       </div>
       <div className='flex gap-6 mt-6'>
-        <p className='cursor-pointer hover:text-white font-semibold' >Web Themes & Templates</p>
-        <p className='cursor-pointer hover:text-white font-semibold' >Code</p>
-        <p className='cursor-pointer hover:text-white font-semibold' ><Link to="/Youtube">Youtube</Link></p>
+        <p className='cursor-pointer hover:text-white font-semibold  '  ><NavLink
+          to="/Headerweb"
+          className={({ isActive }) =>
+            isActive ? "text-white font-bold" : ""
+          }
+        >
+          home
+        </NavLink></p>
+        <p className='cursor-pointer hover:text-white font-semibold' ><NavLink to="/MusicSearch" className={({ isActive }) =>
+          isActive ? "text-white font-bold" : ""} >Live Music</NavLink>
+          </p>
+        <p className='cursor-pointer hover:text-white font-semibold' ><NavLink className={({ isActive }) =>
+          isActive ? "text-white font-bold" : ""
+        } to="/Youtube">Youtube</NavLink></p>
         <p className='cursor-pointer hover:text-white font-semibold' >Audio</p>
         <p className='cursor-pointer hover:text-white font-semibold' >Grafics</p>
         <p className='cursor-pointer hover:text-white font-semibold' >Photos</p>

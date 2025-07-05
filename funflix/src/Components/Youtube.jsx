@@ -1,9 +1,46 @@
 import React from 'react'
+import { useEffect, useState } from "react";
+import { Link } from 'react-router';
+
 
 function Youtube() {
+  const [videos, setVideos] = useState([]);
+  const API_KEY = "AIzaSyAbUocyT80MP1U6cwbLqQ2JlF6KWqr7pzk"; // Replace with yours
+  useEffect(() => {
+    fetch(
+      `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=12&q=reactjs&type=video&key=${API_KEY}`
+    )
+      .then((res) => res.json())
+      .then((data) => setVideos(data.items));
+  }, []);
+
+
   return (
-    <div>
-       <h1>youtube Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi recusandae rerum quam architecto. Tempore laborum ratione pariatur soluta perspiciatis ducimus voluptatum distinctio exercitationem quas incidunt? A, voluptate! Perspiciatis, minus ducimus enim sed expedita cumque rerum quia ut aspernatur adipisci corporis quo eius distinctio voluptates, facere, ipsam dolor quisquam itaque molestias reprehenderit. Molestiae cum nesciunt architecto, cupiditate ducimus, quia a, maiores minima libero illo fugiat! Quas hic eligendi laudantium beatae dolor unde molestias quos, rem velit eius, magnam tenetur temporibus amet ducimus? Autem, ab? Aliquid veritatis quod dolores natus.</h1>  
+    <div className='h-85'>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
+        {videos.map((video) => (
+          <Link
+            to={`/watch/${video.id.videoId}`}
+            key={video.id.videoId}
+            className="bg-white rounded shadow block"
+          >
+            <div key={video.id.videoId} className="bg-white rounded shadow">
+              <img
+                src={video.snippet.thumbnails.medium.url}
+                alt={video.snippet.title}
+                className="w-full"
+              />
+              <div className="p-2">
+                <h2 className="font-semibold">{video.snippet.title}</h2>
+                <p className="text-sm text-gray-600">
+                  {video.snippet.channelTitle}
+                </p>
+              </div>
+            </div>
+          </Link>
+        ))}
+      </div>
     </div>
   )
 }
