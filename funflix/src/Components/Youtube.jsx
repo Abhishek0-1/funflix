@@ -1,23 +1,35 @@
-import React from 'react'
-import { useEffect, useState } from "react";
-import { Link } from 'react-router';
-
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom"; 
 
 function Youtube() {
   const [videos, setVideos] = useState([]);
-  const API_KEY = "AIzaSyAbUocyT80MP1U6cwbLqQ2JlF6KWqr7pzk"; // Replace with yours
+  const API_KEY = "AIzaSyAbUocyT80MP1U6cwbLqQ2JlF6KWqr7pzk";
+  console.log("component rerendrig");
+  
   useEffect(() => {
-    fetch(
-      `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=12&q=reactjs&type=video&key=${API_KEY}`
-    )
-      .then((res) => res.json())
-      .then((data) => setVideos(data.items));
+    const fetchVideos = async () => {
+      try {
+        const res = await fetch(
+          `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=12&q=reactjs&type=video&key=${API_KEY}`
+        );
+        const data = await res.json();
+        setVideos(data.items);
+      } catch (err) {
+        console.error("API fetch failed", err);
+      }
+    };
+    if(videos.length === 0){
+
+      fetchVideos();
+    }
+
+    console.log("rerender all time");
+    
   }, []);
 
-
   return (
-    <div className='h-85'>
-
+    
+    <div className="my-11">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
         {videos.map((video) => (
           <Link
@@ -25,24 +37,20 @@ function Youtube() {
             key={video.id.videoId}
             className="bg-white rounded shadow block"
           >
-            <div key={video.id.videoId} className="bg-white rounded shadow">
-              <img
-                src={video.snippet.thumbnails.medium.url}
-                alt={video.snippet.title}
-                className="w-full"
-              />
-              <div className="p-2">
-                <h2 className="font-semibold">{video.snippet.title}</h2>
-                <p className="text-sm text-gray-600">
-                  {video.snippet.channelTitle}
-                </p>
-              </div>
+            <img
+              src={video.snippet.thumbnails.medium.url}
+              alt={video.snippet.title}
+              className="w-full"
+            />
+            <div className="p-2">
+              <h2 className="font-semibold">{video.snippet.title}</h2>
+              <p className="text-sm text-gray-600">{video.snippet.channelTitle}</p>
             </div>
           </Link>
         ))}
       </div>
     </div>
-  )
+  );
 }
 
-export default Youtube
+export default Youtube;

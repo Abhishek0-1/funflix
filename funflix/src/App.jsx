@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Header from './Components/Header'
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Outlet } from "react-router";
+import { Outlet } from "react-router-dom";
 
 import './App.css'
 import Footer from './Components/Footer';

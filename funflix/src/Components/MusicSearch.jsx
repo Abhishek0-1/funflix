@@ -1,16 +1,19 @@
 import { useEffect, useState } from "react";
 import Player from "./Player";
 import React from "react";
-
+import { useMemo } from "react";
 const MusicSearch = () => {
   const [songs, setSongs] = useState([]);
-  const [term, setTerm] = useState("arijit singh");
+  const [term, setTerm] = useState("Arijit Singh");
   const [currentSong, setCurrentSong] = useState(null);
 
   useEffect(() => {
     fetch(`https://itunes.apple.com/search?term=${term}&media=music&limit=12`)
+
       .then((res) => res.json())
       .then((data) => setSongs(data.results));
+      console.log("rerender");
+      
   }, [term]);
 
   return (
@@ -21,7 +24,7 @@ const MusicSearch = () => {
         placeholder="Search Artist or Song..."
         value={term}
         onChange={(e) => setTerm(e.target.value)}
-        className="p-2 w-full mb-4 rounded bg-gray-800 text-white"
+        className="p-2 w-full mb-11 rounded rounded-lg bg-transparent border shadow shadow-green-300 shadow-2xl"
       />
 
       <div className="grid md:grid-cols-3 gap-4">
@@ -43,4 +46,4 @@ const MusicSearch = () => {
   );
 };
 
-export default MusicSearch;
+export default React.memo(MusicSearch);
