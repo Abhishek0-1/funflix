@@ -4,6 +4,7 @@ import { Link, NavLink } from 'react-router-dom'
 
 function Header() {
   return (
+    
     <div className='bg-gray-950   p-4  text-gray-400'>
       <div className='flex justify-between'>
         <div className='flex'>

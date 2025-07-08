@@ -29,8 +29,8 @@ const Weather = () => {
     return (
         <div className="min-h-screen   p-4 bg-gradient-to-br flex flex-col items-center
          text-white" style={{
-            backgroundImage: "url('https://img.freepik.com/free-vector/digital-cloud-pattern-background-connection-technology_53876-119493.jpg?t=st=1751865862~exp=1751869462~hmac=ecdb137daacc4a0c84301fe97f4e8e74b774eb3ee430b37a770493bbe2a538ea&w=1380')"
-        }}>
+                backgroundImage: "url('https://img.freepik.com/free-vector/digital-cloud-pattern-background-connection-technology_53876-119493.jpg?t=st=1751865862~exp=1751869462~hmac=ecdb137daacc4a0c84301fe97f4e8e74b774eb3ee430b37a770493bbe2a538ea&w=1380')"
+            }}>
             <h2 className="text-3xl font-bold mb-4">🌦 Weather Report</h2>
 
             <div className="mb-4 w-200 flex gap-2">

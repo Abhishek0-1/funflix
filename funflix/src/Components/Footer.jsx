@@ -1,86 +1,73 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-function Footer() {
+const Footer = () => {
   return (
-    <div className='bg-gray-950 text-white p-4'>
-      <div className='flex '>
-        <div className='flex  flex-col font-medium  gap-3'>
+    <footer className="bg-black text-gray-400 py-12 px-4 md:px-8 lg:px-16">
+      <div className="max-w-7xl mx-auto">
+        {/* Social Links */}
+        
+
+        {/* Footer Links */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
           <div>
-
-            <ul className='flex gap-6 text-gray-500 font-bold'>
-              <h2>ENVATO MARKET</h2>
-              <h2>Help</h2>
-              <h2 className='flex flex-col'> <p>OUR</p> <p>COMMUNITY</p> </h2>
-              <h2>MEET EMVATO</h2>
-
+            <h3 className="text-white font-medium mb-4">Company</h3>
+            <ul className="space-y-2">
+              <li><Link to="/about" className="hover:text-white transition-colors">About Us</Link></li>
+              <li><Link to="/careers" className="hover:text-white transition-colors">Careers</Link></li>
+              <li><Link to="/contact" className="hover:text-white transition-colors">Contact</Link></li>
             </ul>
           </div>
-          <div className='flex gap-4'>
-            <div >
-              <ul className='flex flex-col gap-3'>
-                <li className='hover:underline cursor-pointer' >Term</li>
-                <li className='hover:underline cursor-pointer' >Licenses</li>
-                <li className='hover:underline cursor-pointer' >Market</li>
-                <li className='hover:underline cursor-pointer' >Become an affiliate</li>
-                <li className='hover:underline cursor-pointer' >Cookies</li>
-                <li className='hover:underline cursor-pointer' >Cookies settings</li>
-              </ul>
-
-            </div>
-            <div>
-              <ul className='flex flex-col gap-3'>
-
-                <li className='hover:underline cursor-pointer' >Help</li>
-                <li className='hover:underline cursor-pointer' >Authors</li>
-              </ul>
-            </div>
-            <div>
-              <ul  className='flex flex-col gap-3'>
-                <li className='hover:underline cursor-pointer' >Communit</li>
-                <li className='hover:underline cursor-pointer' >Blog</li>
-                <li className='hover:underline cursor-pointer' >Forums</li>
-                <li className='hover:underline cursor-pointer' >Meetups</li>
-
-              </ul>
-            </div>
-            <div>
-              <ul className='flex flex-col gap-3'>
-                <li className='hover:underline cursor-pointer' >About Envato </li>
-                <li className='hover:underline cursor-pointer' >Careers</li>
-                <li className='hover:underline cursor-pointer' >Privacy Policy</li>
-                <li className='hover:underline cursor-pointer' >Do not sell or share my personal information</li>
-                <li className='hover:underline cursor-pointer' >Sitemap</li>
-              </ul>
-            </div>
-          </div>
-
-
-
-        </div>
-        <div className='flex gap-21 '>
-          <div >
-            <div>
-              <img className='h-5' src="https://assets.market-storefront.envato-static.com/storefront/assets/logos/envato-market-0c6ef0bdbf918a098bf915273cd4ca39cb1afd7992deef185dafe33b2c623b2f.svg" alt="" />
-            </div>
-            <div className='flex gap-4 mt-4'>
-              <p>
-                <p>77,302,208 </p>
-                <p>items sold</p>
-              </p>
-              <p>
-                <p>$1,213,184,833</p>
-                <p>community earning</p>
-              </p>
-            </div>
-            
-          </div>
+          
           <div>
-            <img className='h-22 mt-4' src="https://public-assets.envato-static.com/assets/header-footer/logo-bcorp-e83f7da84188b8edac311fbf08eaa86634e9db7c67130cdc17837c1172c5f678.svg"alt="" />
+            <h3 className="text-white font-medium mb-4">Support</h3>
+            <ul className="space-y-2">
+              <li><Link to="/faq" className="hover:text-white transition-colors">FAQ</Link></li>
+              <li><Link to="/help" className="hover:text-white transition-colors">Help Center</Link></li>
+              <li><Link to="/privacy" className="hover:text-white transition-colors">Privacy</Link></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 className="text-white font-medium mb-4">Legal</h3>
+            <ul className="space-y-2">
+              <li><Link to="/terms" className="hover:text-white transition-colors">Terms of Use</Link></li>
+              <li><Link to="/policy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
+              <li><Link to="/cookies" className="hover:text-white transition-colors">Cookie Policy</Link></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 className="text-white font-medium mb-4">Account</h3>
+            <ul className="space-y-2">
+              <li><Link to="/account" className="hover:text-white transition-colors">My Account</Link></li>
+              <li><Link to="/watchlist" className="hover:text-white transition-colors">Watchlist</Link></li>
+              <li><Link to="/subscription" className="hover:text-white transition-colors">Subscription</Link></li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Copyright and App Badges */}
+        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-sm mb-4 md:mb-0">
+            © {new Date().getFullYear()} FunFlix. All rights reserved.
+          </p>
+          <div className="flex space-x-4">
+            <img 
+              src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" 
+              alt="App Store" 
+              className="h-10 cursor-pointer hover:opacity-80 transition-opacity"
+            />
+            <img 
+              src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" 
+              alt="Google Play" 
+              className="h-10 cursor-pointer hover:opacity-80 transition-opacity"
+            />
           </div>
         </div>
       </div>
-    </div>
-  )
-}
+    </footer>
+  );
+};
 
-export default Footer
+export default Footer;
